@@ -1,7 +1,7 @@
 # Polygons modded
 
 > ## ⚠️ Deprecated
-> This mod is no longer updated. Use **[Not Weekly Shorts - OTCT](https://notweeklyshorts.github.io/otct)** instead, it has more features.
+> This mod is no longer updated. It has moved to a **[new site](https://notweeklyshorts.github.io/otct)** with more features.
 > 
 > The site at this repository now redirects there.
 
