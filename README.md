@@ -1,4 +1,10 @@
 # Polygons modded
+
+> ## ⚠️ Deprecated
+> This mod is no longer updated. Use **[Not Weekly Shorts - OTCT](https://notweeklyshorts.github.io/otct)** instead, it has more features.
+> 
+> The site at this repository now redirects there.
+
 This is an unofficial modded build of the game **PolyTrack**. 
 
 ## ⚠️ Unofficial Notice

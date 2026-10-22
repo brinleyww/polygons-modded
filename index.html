@@ -1,4 +1,189 @@
-<!doctype html><html><head><meta charset="utf-8"><link rel="preload" href="forced_square.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml"/><link rel="preload" href="images/discord.svg" as="image" type="image/svg+xml"/><link rel="manifest" href="manifest.json"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><script defer="defer" src="error_screen.bundle.js"></script><script>window.polytrackModConfiguration={modName:"Polygons modded",author:"bringleyw"};
-// Leaderboard proxy base URL. Must end with a slash.
-// vps.kodub.com only accepts requests from Kodub's own origins, so calls are relayed.
-window.__nswsApiBase="https://pt-leaderboard-proxy.bringleyw.workers.dev/";</script><script defer="defer" src="main.bundle.js"></script></head><body><canvas id="screen"></canvas><div id="ui"></div><div id="transition-layer"></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Polygons modded - deprecated</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<!-- Fallback for browsers with JavaScript disabled; the script below redirects sooner. -->
+<meta http-equiv="refresh" content="8;url=https://notweeklyshorts.github.io/otct">
+<link rel="preload" href="forced_square.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+@font-face {
+	font-family: ForcedSquare;
+	src:
+		url("forced_square.woff2") format("woff2"),
+		url("forced_square.woff") format("woff"),
+		url("forced_square.ttf") format("truetype");
+}
+
+:root {
+	--text-color: #fff;
+	--surface-color: #28346a;
+	--surface-tertiary-color: #192042;
+	--button-color: #112052;
+	--button-hover-color: #334b77;
+	--button-active-color: #151f41;
+}
+
+* {
+	font-style: italic;
+	font-family: ForcedSquare, Arial, sans-serif;
+	line-height: 1;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+	color: var(--text-color);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 32px;
+	box-sizing: border-box;
+	min-height: 100vh;
+	padding: 32px 24px;
+}
+
+#logo {
+	width: 100%;
+	max-width: 360px;
+}
+
+#notice {
+	width: 100%;
+	max-width: 640px;
+	background-color: var(--surface-color);
+}
+
+#notice > h1 {
+	margin: 0;
+	padding: 14px 24px;
+	background-color: var(--surface-tertiary-color);
+	font-size: 36px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#body {
+	padding: 28px 32px 32px 32px;
+}
+
+#body > p {
+	margin: 0 0 18px 0;
+	font-size: 24px;
+	line-height: 1.35;
+}
+
+#body > p.quiet {
+	margin: 0;
+	opacity: 0.5;
+	font-size: 20px;
+}
+
+.button {
+	display: inline-block;
+	position: relative;
+	margin: 10px 0 24px 0;
+	padding: 10px 22px;
+	background-color: var(--button-color);
+	border: none;
+	clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+	color: var(--text-color);
+	font-size: 32px;
+	text-decoration: none;
+	user-select: none;
+	cursor: pointer;
+}
+
+.button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 100%;
+	background-color: var(--button-hover-color);
+	border-bottom: 2px solid var(--text-color);
+	transition: width 0.1s ease-in-out;
+}
+
+.button:hover::after {
+	width: 100%;
+}
+
+.button:active::after {
+	background-color: var(--button-active-color);
+	width: 100%;
+}
+
+.button > span {
+	position: relative;
+	z-index: 1;
+}
+
+@media (hover: none) {
+	.button::after {
+		background-color: var(--button-active-color);
+	}
+
+	.button:hover::after {
+		width: 0;
+	}
+}
+
+@media (max-width: 540px) {
+	#notice > h1 {
+		font-size: 28px;
+	}
+
+	#body > p {
+		font-size: 20px;
+	}
+
+	.button {
+		font-size: 26px;
+	}
+}
+</style>
+</head>
+<body>
+<img id="logo" src="images/logo.svg" alt="PolyTrack">
+<div id="notice">
+	<h1>Site deprecated</h1>
+	<div id="body">
+		<p>Polygons modded is no longer updated. It has moved to Not Weekly Shorts, which has more features.</p>
+		<a class="button" href="https://notweeklyshorts.github.io/otct"><span>Go to the new site</span></a>
+		<p class="quiet" id="countdown">Taking you to notweeklyshorts.github.io/otct&hellip;</p>
+	</div>
+</div>
+<script>
+(function () {
+	var target = "https://notweeklyshorts.github.io/otct";
+	var countdown = document.getElementById("countdown");
+	var left = 5;
+
+	function tick() {
+		countdown.textContent = left > 0
+			? "Taking you to notweeklyshorts.github.io/otct in " + left + "…"
+			: "Taking you to notweeklyshorts.github.io/otct…";
+
+		if (left === 0) {
+			location.replace(target);
+			return;
+		}
+
+		left--;
+		setTimeout(tick, 1000);
+	}
+
+	tick();
+})();
+</script>
+</body>
+</html>
